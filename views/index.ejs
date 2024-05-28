@@ -3,30 +3,42 @@
   <head>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title><%= title %></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <section class="chat-box">
-      <div class="card">
-        <div class="card-box">
-          <div class="title-box"><h3>QUIZ DO JOÃO AMARO</h3></div>
-          <hr>
-          <ul id="messages"></ul>
-        </div>
+    <div class="main-body">
+      <div class="page-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="card">
+              <div class="card-header">                
+                <div class="title-box"><h3>QUIZ DO JOÃO AMARO</h3><h4>Jogador: <span id="nomejogador"></span></h4><h5>Perguntas <span id="numperguntas">0</span> de 10</h5></div>
+              </div>
+              <div class="card-body">
+                <div id="response"><div class="alert alert-primary">Olá Usuario Novo! Bora jogar?</div></div>
+                <hr>
+                <div id="messages"><button class="btn btn-primary" type="button" id="jogar">Jogar</button></div>
+              </div>
+              <div class="card-footer">
+                <div class="title-box"><h2>Ranking</h2></div>
+                <hr>
+                <table class="table">
+                  <tbody id="responseRank">
+
+                  </tbody>
+                </table>
+                <hr>
+              </div>
+            </div>
+          </div>
+        </div>  
       </div>
-    </section>
+    </div>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.all.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
-  <script>
-    const socket = io();
-  
-    const messages = document.getElementById('messages');
-  
-    socket.on('chat message', (msg) => {
-      const item = document.createElement('li');
-      item.textContent = msg;
-      messages.appendChild(item);
-      window.scrollTo(0, document.body.scrollHeight);
-    });
-  </script>
+  <script src="/javascripts/index.js"></script>
 </html>

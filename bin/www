@@ -5,6 +5,8 @@
  */
 
 var app = require('../app');
+const Users = require('../services/users');
+const Perguntas = require('../services/perguntas');
 var debug = require('debug')('quiz:server');
 var http = require('http');
 var socketIO = require('socket.io');
@@ -21,15 +23,37 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
-var io= socketIO(server);
+var io = socketIO(server);
+var users = new Users();
+var perguntas = new Perguntas();
 
 io.on('connection', (socket) => {
-  io.emit('chat message', 'Olá Usuario Novo!');
-  socket.on('chat message', (msg) => {
-    io.emit('chat message', msg);
+  socket.on('result', (res) => {
+    let user = users.getUserById(res.userId);
+    let pergunta = perguntas.getPergunta(res.perguntaId);
+    if(res.resposta != pergunta.resposta){
+      result = false;
+    }else{
+      result = true;
+      users.setUserScoreById(user.id,(user.score+1));
+      io.emit('greetings', {ranking: users.getAllNamesAndScores()});
+    }
+    user.socket.emit('result', {resposta:result});
+    if(res.respondidas.length < 10){
+      user.socket.emit('response', perguntas.getPerguntaAleatoria(res.respondidas));
+    }else{
+      user.socket.emit('final', {name:user.name,score:user.score});
+    }
+  });
+  socket.on('registrar', function(res) {
+    let userNovo = users.addUser(res.nome, 0,socket);
+    console.log('User registered:', userNovo.id);
+    userNovo.socket.emit('registrar', {id: userNovo.id, nome:userNovo.name});
+    userNovo.socket.emit('response', perguntas.getPerguntaAleatoria([]));
+    io.emit('greetings', {ranking: users.getAllNamesAndScores()});
   });
   socket.on('disconnect', () => {
-    io.emit('chat message', 'Tchau Usuario Novo!');
+    
   });
 });
 
