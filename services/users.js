@@ -1,6 +1,6 @@
 const { v4: uuidv4 } = require('uuid');
 
-class UserManager {
+class Users {
     constructor() {
         this.users = new Map();
     }
@@ -31,4 +31,4 @@ class UserManager {
     }
 }
 
-module.exports = UserManager;
+module.exports = Users;
