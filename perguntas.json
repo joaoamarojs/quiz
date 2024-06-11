@@ -1,0 +1,64 @@
+{
+    "perguntas": [
+      {
+        "id": 1,
+        "pergunta": "Qual linguagem é conhecida como a linguagem de marcação padrão para criar páginas web?",
+        "resposta": 0,
+        "respostas": ["HTML", "JavaScript", "Python", "CSS"]
+      },
+      {
+        "id": 2,
+        "pergunta": "Qual é o sistema de controle de versão distribuído mais popular?",
+        "resposta": 0,
+        "respostas": ["Git", "SVN", "Mercurial", "CVS"]
+      },
+      {
+        "id": 3,
+        "pergunta": "Qual tecnologia é usada para estruturar e formatar o conteúdo de páginas web?",
+        "resposta": 3,
+        "respostas": ["JavaScript", "PHP", "SQL", "CSS"]
+      },
+      {
+        "id": 4,
+        "pergunta": "Qual linguagem de programação é amplamente usada para desenvolvimento de aplicativos Android?",
+        "resposta": 1,
+        "respostas": ["JavaScript", "Java", "Swift", "C#"]
+      },
+      {
+        "id": 5,
+        "pergunta": "Qual banco de dados é um sistema de gerenciamento de banco de dados relacional?",
+        "resposta": 2,
+        "respostas": ["MongoDB", "Cassandra", "MySQL", "Redis"]
+      },
+      {
+        "id": 6,
+        "pergunta": "Qual tecnologia é usada para desenvolver aplicativos de página única (SPA)?",
+        "resposta": 0,
+        "respostas": ["React", "Django", "Flask", "Laravel"]
+      },
+      {
+        "id": 7,
+        "pergunta": "Qual é um protocolo de comunicação na web?",
+        "resposta": 2,
+        "respostas": ["FTP", "SMTP", "HTTP", "SSH"]
+      },
+      {
+        "id": 8,
+        "pergunta": "Qual linguagem de programação é conhecida por seu uso em análise de dados e aprendizado de máquina?",
+        "resposta": 1,
+        "respostas": ["Ruby", "Python", "Perl", "Lua"]
+      },
+      {
+        "id": 9,
+        "pergunta": "Qual é o nome do ambiente de tempo de execução que permite a execução de JavaScript no lado do servidor?",
+        "resposta": 0,
+        "respostas": ["Node.js", "Ruby on Rails", "Django", "ASP.NET"]
+      },
+      {
+        "id": 10,
+        "pergunta": "Qual é um framework front-end popular para desenvolvimento de interfaces de usuário?",
+        "resposta": 1,
+        "respostas": ["Flask", "Vue.js", "Spring", "Express"]
+      }
+    ]
+  }
